@@ -1,1 +1,1 @@
-require_relative 'twithub/twitter_entry'
+require_relative 'twithub/feed_entry'
