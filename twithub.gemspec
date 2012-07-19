@@ -3,7 +3,7 @@ Gem::Specification.new do |s|
   s.version = "0.1.0"
   s.authors = ["Peter Zimbelman"]
   s.email = ["pzimbelman@gmail.com"]
-  s.homepage = ""
+  s.homepage = "https://github.com/pzimbelman/twithub"
   s.summary = %q{A gem to aggregate your recent twitter and github activity}
   s.description = %q{A gem to aggregate your recent twitter and github activity into a single feed. Can accept multiple logins for either service.}
 
@@ -14,7 +14,6 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "rspec"
   s.add_development_dependency "rake"
-  s.add_runtime_dependency "activesupport", "= 3.1.1"
   s.add_dependency "twitter"
   s.add_dependency "feedzirra"
 end
