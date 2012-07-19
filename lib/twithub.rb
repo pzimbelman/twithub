@@ -10,7 +10,7 @@ require_relative 'twithub/github_entry'
 module Twithub
   def entries_for(params)
     entries = Twitter.entries_for(params[:twitter]) + Github.entries_for(params[:github])
-    entries.sort { |a,b| b.posted_at <=> a.posted_at }
+    entries.sort
   end
   module_function :entries_for
 end
