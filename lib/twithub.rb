@@ -1,3 +1,4 @@
+require 'twitter'
 require_relative 'twithub/entry_builder_methods'
 require_relative 'twithub/feed_entry'
 require_relative 'twithub/twitter'
