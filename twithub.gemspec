@@ -1,6 +1,7 @@
+require File.expand_path('../lib/twithub/version', __FILE__)
 Gem::Specification.new do |s|
   s.name = "twithub"
-  s.version = "0.1.0"
+  s.version = Twithub::VERSION
   s.authors = ["Peter Zimbelman"]
   s.email = ["pzimbelman@gmail.com"]
   s.homepage = "https://github.com/pzimbelman/twithub"
