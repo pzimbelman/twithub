@@ -2,19 +2,12 @@ module Twithub
   class FeedEntry
     TWITTER = "twitter"
     GITHUB = "github"
-    attr_reader :content, :posted_at, :origin
-    def initialize(content, posted_at, origin)
-      @content = content
-      @posted_at = posted_at
-      @origin = origin
-    end
-
-    def self.from_twitter(content, posted_at)
-      new(content, posted_at, TWITTER)
-    end
-
-    def self.from_github(content, posted_at)
-      new(content, posted_at, GITHUB)
+    attr_reader :content, :posted_at, :origin, :username
+    def initialize(params)
+      @content = params[:content]
+      @posted_at = params[:posted_at]
+      @username = params[:username]
+      @origin = params[:origin]
     end
   end
 end
