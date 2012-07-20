@@ -9,9 +9,8 @@ require_relative 'twithub/github_entry'
 
 module Twithub
   def entries_for(params)
-    count_limit = params[:count] ? (params[:count] - 1) : -1
     entries = Twitter.entries_for(params[:twitter]) + Github.entries_for(params[:github])
-    entries.sort[0..count_limit]
+    entries.sort.take(params[:count] || entries.size)
   end
   module_function :entries_for
 end
