@@ -13,7 +13,7 @@ GIT
 PATH
   remote: .
   specs:
-    twithub (0.1.0)
+    twithub (0.1.1)
       feedzirra
       twitter
 
