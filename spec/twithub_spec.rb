@@ -30,4 +30,21 @@ describe Twithub do
       Twithub.entries_for(:twitter => twitter_name, :github => github_name).should == [github_entry, twitter_entry]
     end
   end
+
+  describe "when lots of entries are returned" do
+    let(:fake_entries) { (1..100).to_a }
+
+    before do
+      Twithub::Twitter.stub(:entries_for).and_return(fake_entries)
+    end
+
+    it "should allow the user to limit the count of the returned entries" do
+      Twithub.entries_for(:twitter => "stuff", :count => 7).size.should == 7
+    end
+
+    it "should return all entries if no count parameter is given or if count is larger than the number of entries" do
+      Twithub.entries_for(:twitter => "stuff").size.should == 100
+      Twithub.entries_for(:twitter => "stuff", :count => 200).size.should == 100
+    end
+  end
 end
