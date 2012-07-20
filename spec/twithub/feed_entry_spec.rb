@@ -1,3 +1,4 @@
+require 'json'
 require_relative '../../lib/twithub'
 describe Twithub::FeedEntry do
   describe "an empty base entry" do
@@ -21,6 +22,24 @@ describe Twithub::FeedEntry do
       it "should allow comparing the entries to one another" do
         (old_entry > new_entry).should be_true
         (old_entry < new_entry).should be_false
+      end 
+    end
+
+    describe "an entry with stubbed out attributes" do
+      let(:entry) { Twithub::FeedEntry.new }
+      let(:time) { Time.now }
+      let(:expected_hash) { {"posted_at" => time.to_s, "content" => "the content",
+                             "username" => "pzimbelman", "origin" => "twitter" } }
+
+      before do
+        entry.stub(:posted_at).and_return(time)
+        entry.stub(:content).and_return("the content")
+        entry.stub(:username).and_return("pzimbelman")
+        entry.stub(:origin).and_return("twitter")
+      end
+
+      it "should take the entry to json" do
+        JSON.parse(entry.to_json).should == expected_hash
       end 
     end
   end
