@@ -15,6 +15,6 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "rspec"
   s.add_development_dependency "rake"
-  s.add_dependency "twitter"
-  s.add_dependency "feedzirra"
+  s.add_dependency "twitter", "~> 3.3"
+  s.add_dependency "feedzirra", "~> 0.2.0.rc2"
 end
