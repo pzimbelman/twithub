@@ -3,6 +3,8 @@
 
 Twithub is a gem to let you easily retrive both your twitter and github activity into a single feed.
 
+[![Build Status](https://secure.travis-ci.org/pzimbelman/twithub.png?branch=master)](http://travis-ci.org/pzimbelman/twithub)
+
 ## Installation
 
     gem install twithub
