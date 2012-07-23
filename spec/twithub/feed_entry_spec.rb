@@ -1,4 +1,3 @@
-require 'json'
 require_relative '../../lib/twithub'
 describe Twithub::FeedEntry do
   describe "an empty base entry" do

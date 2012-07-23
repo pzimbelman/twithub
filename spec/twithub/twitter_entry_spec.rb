@@ -10,6 +10,6 @@ describe Twithub::TwitterEntry do
     entry.content.should == text
     entry.username.should == username
     entry.posted_at.should == time
-    entry.origin.should == Twithub::FeedEntry::TWITTER
+    entry.origin.should == Twithub::TWITTER
   end
 end

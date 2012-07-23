@@ -47,4 +47,22 @@ describe Twithub do
       Twithub.entries_for(:twitter => "stuff", :count => 200).size.should == 100
     end
   end
+
+  describe "from_json" do
+    let(:time) { Time.parse("Jan 1st 2011") }
+    let(:entry) { Twithub::TwitterEntry.new.with_content("foobar").with_username("thing").with_posted_at(time) }
+
+    it "should be able accept a json string for a single entry" do
+      new_entry = Twithub.from_json(entry.to_json)
+      new_entry.content.should == "foobar"
+      new_entry.posted_at.should == time
+    end 
+
+    it "should be able to accept a json string of an array of entries" do
+      json = [entry].to_json
+      new_entry = Twithub.from_json(json).first
+      new_entry.content.should == "foobar"
+      new_entry.posted_at.should == time
+    end
+  end
 end

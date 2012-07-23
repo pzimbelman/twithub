@@ -10,6 +10,6 @@ describe Twithub::GithubEntry do
     entry.content.should == text
     entry.username.should == username
     entry.posted_at.should == time
-    entry.origin.should == Twithub::FeedEntry::GITHUB
+    entry.origin.should == Twithub::GITHUB
   end
 end
