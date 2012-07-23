@@ -2,7 +2,7 @@
 module Twithub
   class FeedEntry
     include Comparable
-    attr_reader :content, :posted_at, :origin, :username
+    attr_reader :content, :posted_at, :origin, :username, :url
 
     def <=>(other_entry)
       other_entry.posted_at <=> posted_at

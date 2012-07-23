@@ -6,8 +6,9 @@ describe Twithub::Github do
     let(:recent_time) { Time.now }
     let(:username) { "pzimbelman" }
     let(:url) { "http://github.com/#{username}.atom" }
-    let(:first_github_response) { double("git", :title => "pushed to master!", :author => username, :published => recent_time) }
-    let(:second_github_response) { double("git", :title => "pushed to branch", :author => username, :published => early_time) }
+    let(:first_github_response) { double("git", :title => "pushed to master!", :author => username, :published => recent_time, :url => "http://fooness") }
+    let(:second_github_response) { double("git", :title => "pushed to branch", :author => username, :published => early_time, :url => "http://barness") }
+
     let(:responses) { [first_github_response, second_github_response] }
 
     before do
@@ -21,11 +22,13 @@ describe Twithub::Github do
       entries.first.content.should == first_github_response.title
       entries.first.username.should == username
       entries.first.posted_at.should == recent_time
+      entries.first.url.should == "http://fooness"
 
       entries.last.is_a?(Twithub::GithubEntry).should be_true
       entries.last.content.should == second_github_response.title
       entries.last.username.should == username
       entries.last.posted_at.should == early_time
+      entries.last.url.should == "http://barness"
     end
   end
 

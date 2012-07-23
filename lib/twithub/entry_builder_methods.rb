@@ -14,5 +14,10 @@ module Twithub
       @posted_at = posted_at
       self
     end
+
+    def with_url(url)
+      @url = url
+      self
+    end
   end
 end
