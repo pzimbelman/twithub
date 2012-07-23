@@ -50,12 +50,13 @@ describe Twithub do
 
   describe "from_json" do
     let(:time) { Time.parse("Jan 1st 2011") }
-    let(:entry) { Twithub::TwitterEntry.new.with_content("foobar").with_username("thing").with_posted_at(time) }
+    let(:entry) { Twithub::TwitterEntry.new.with_content("foobar").with_username("thing").with_posted_at(time).with_url("urlstring") }
 
     it "should be able accept a json string for a single entry" do
       new_entry = Twithub.from_json(entry.to_json)
       new_entry.content.should == "foobar"
       new_entry.posted_at.should == time
+      new_entry.url.should == "urlstring"
     end 
 
     it "should be able to accept a json string of an array of entries" do
@@ -63,6 +64,7 @@ describe Twithub do
       new_entry = Twithub.from_json(json).first
       new_entry.content.should == "foobar"
       new_entry.posted_at.should == time
+      new_entry.url.should == "urlstring"
     end
   end
 end

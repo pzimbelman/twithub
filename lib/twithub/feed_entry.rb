@@ -9,7 +9,7 @@ module Twithub
     end
 
     def to_json(*args)
-      { :content => content, :username => username, 
+      { :content => content, :username => username, :url => url,
         :posted_at => posted_at, :origin => origin }.to_json      
     end
 

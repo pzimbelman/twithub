@@ -12,7 +12,7 @@ module Twithub
     def entry_for(hash)
       entry = hash["origin"] == Twithub::TWITTER ? Twithub::TwitterEntry.new : Twithub::GithubEntry.new
       time = Time.parse(hash["posted_at"])
-      entry.with_content(hash["content"]).with_username(hash["username"]).with_posted_at(time)
+      entry.with_content(hash["content"]).with_username(hash["username"]).with_posted_at(time).with_url(hash["url"])
     end 
   end
 end

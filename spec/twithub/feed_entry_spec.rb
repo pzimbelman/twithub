@@ -48,13 +48,14 @@ describe Twithub::FeedEntry do
       let(:entry) { Twithub::FeedEntry.new }
       let(:time) { Time.now }
       let(:expected_hash) { {"posted_at" => time.to_s, "content" => "the content",
-                             "username" => "pzimbelman", "origin" => "twitter" } }
+                             "username" => "pzimbelman", "origin" => "twitter", "url" => "foobar" } }
 
       before do
         entry.stub(:posted_at).and_return(time)
         entry.stub(:content).and_return("the content")
         entry.stub(:username).and_return("pzimbelman")
         entry.stub(:origin).and_return("twitter")
+        entry.stub(:url).and_return("foobar")
       end
 
       it "should take the entry to json" do
