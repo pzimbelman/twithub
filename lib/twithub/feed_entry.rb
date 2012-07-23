@@ -12,5 +12,13 @@ module Twithub
       { :content => content, :username => username, 
         :posted_at => posted_at, :origin => origin }.to_json      
     end
+
+    def from_twitter?
+      origin == Twithub::TWITTER
+    end
+
+    def from_github?
+      origin == Twithub::GITHUB
+    end
   end
 end

@@ -24,6 +24,26 @@ describe Twithub::FeedEntry do
       end 
     end
 
+    describe "entries with mocked out origins" do
+      let(:twitter_entry) { Twithub::FeedEntry.new }
+      let(:github_entry) { Twithub::FeedEntry.new }
+      
+      before do
+        twitter_entry.stub(:origin).and_return(Twithub::TWITTER)
+        github_entry.stub(:origin).and_return(Twithub::GITHUB)
+      end
+
+      it "should know if the entry is from twitter" do
+        twitter_entry.from_twitter?.should be_true
+        github_entry.from_twitter?.should be_false
+      end
+
+      it "should know if the entry is from github" do
+        github_entry.from_github?.should be_true
+        twitter_entry.from_github?.should be_false
+      end
+    end
+
     describe "an entry with stubbed out attributes" do
       let(:entry) { Twithub::FeedEntry.new }
       let(:time) { Time.now }
