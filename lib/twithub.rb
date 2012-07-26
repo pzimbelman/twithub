@@ -8,6 +8,7 @@ require_relative 'twithub/github'
 require_relative 'twithub/twitter_entry'
 require_relative 'twithub/github_entry'
 require_relative 'twithub/entries'
+require_relative 'twithub/twitter_status_url'
 
 module Twithub
   TWITTER = "twitter"
